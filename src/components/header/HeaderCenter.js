@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { NAV_BUTTONS } from '../../data/buttons';
-import NavButton from '../UI/NavButton';
+import NavButton from '../UI/buttons/NavButton';
 
 function HeaderCenter() {
   // eslint-disable-next-line

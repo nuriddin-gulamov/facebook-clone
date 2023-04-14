@@ -27,6 +27,8 @@ import {
   FcTodoList,
   FcSmartphoneTablet,
   FcMms,
+  FcStart,
+  FcGallery,
 } from 'react-icons/fc';
 
 export const NAV_BUTTONS = [
@@ -70,4 +72,10 @@ export const SIDEBAR_MORE_BUTTONS = [
   { icon: FcTodoList, title: 'Orders and Payments' },
   { icon: FcSmartphoneTablet, title: 'Play Games' },
   { icon: FcMms, title: 'Recent and activity' },
+];
+
+export const SHARE_BUTTONS = [
+  { icon: FcStart, title: 'Live Video' },
+  { icon: FcGallery, title: 'Photo/Video' },
+  { icon: FcLike, title: 'Feeling/Activity' },
 ];

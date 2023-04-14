@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
 
 import { SIDEBAR_BUTTONS, SIDEBAR_MORE_BUTTONS } from '../../data/buttons';
-import SidebarButton from '../UI/SidebarButton';
+import SidebarButton from '../UI/buttons/SidebarButton';
 
 function Sidebar() {
+  const mobileMenuOpened = useSelector((state) => state.mobileMenuOpened);
   const [moreButtonsOpened, setMoreButtonsOpened] = useState(false);
 
   function toggleMoreButtons() {
@@ -16,7 +18,11 @@ function Sidebar() {
   }
 
   return (
-    <div className="w-[20%] flex flex-col py-[20px] px-[10px] max-[1100px]:hidden">
+    <div
+      className={`flex flex-col flex-2 py-[20px] px-[10px] ${
+        !mobileMenuOpened && 'max-lg:hidden'
+      }`}
+    >
       {SIDEBAR_BUTTONS.map((button, index) => (
         <SidebarButton Icon={button.icon} title={button.title} index={index} />
       ))}
