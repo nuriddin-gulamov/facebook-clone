@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# This is a Facebook Clone made by Nuriddin Gulamov, as a project for portfolio.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can feel free to view any code written for this project through this repository.
 
 ## Available Scripts
 
