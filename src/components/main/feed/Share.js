@@ -6,7 +6,7 @@ import ShareButton from '../../UI/buttons/ShareButton';
 
 function Share() {
   return (
-    <div className="w-[100%] px-[15px] py-[10px] bg-white rounded-lg mt-[35px] shadow-md">
+    <div className="w-[90%] px-[15px] py-[10px] bg-white rounded-lg mt-[35px] shadow-md">
       <div className="flex items-center">
         <div className="w-[40px] h-[40px] flex justify-center items-center bg-gray100 rounded-full mr-[10px]">
           <FaUser />

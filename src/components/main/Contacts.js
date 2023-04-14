@@ -7,7 +7,7 @@ function Contacts() {
 
   return (
     <div
-      className={`flex flex-2 flex-col py-[20px] px-[10px] pl-[50px] max-[850px]:hidden ${
+      className={`flex flex-2 flex-col py-[20px] px-[10px] max-[850px]:hidden ${
         mobileMenuOpened && 'hidden'
       }`}
     >

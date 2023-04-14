@@ -4,7 +4,7 @@ import Contacts from './Contacts';
 
 function Main() {
   return (
-    <div className="flex">
+    <div className="flex px-[5px]">
       <Sidebar />
       <Feed />
       <Contacts />
