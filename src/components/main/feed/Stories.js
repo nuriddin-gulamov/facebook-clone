@@ -8,7 +8,24 @@ function Stories() {
   return (
     <div className="flex justify-center items-center w-[100%] max-[850px]:justify-center">
       {STORIES.map((story, index) => (
-        <Story Icon={story.icon} name={story.name} key={index} index={index} />
+        <div className="max-sm:hidden">
+          <Story
+            Icon={story.icon}
+            name={story.name}
+            key={index}
+            index={index}
+          />
+        </div>
+      ))}
+      {STORIES.slice(0, 3).map((story, index) => (
+        <div className="sm:hidden">
+          <Story
+            Icon={story.icon}
+            name={story.name}
+            key={index}
+            index={index}
+          />
+        </div>
       ))}
     </div>
   );

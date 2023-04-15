@@ -3,6 +3,7 @@ import post from "../assets/post.png";
 
 const POSTS = [
   {
+    id: Math.random().toString(16).slice(2),
     icon: FaUser,
     name: "Nuriddin Gulamov",
     posted: "3d",
@@ -12,6 +13,7 @@ const POSTS = [
     likeCount: 0,
     commentCount: 0,
     shareCount: 0,
+    liked: false,
   },
 ];
 

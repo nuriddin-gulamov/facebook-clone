@@ -16,7 +16,7 @@ function Share() {
           className="w-[90%]"
         />
       </div>
-      <div className="flex pt-[10px] border-t-[1px] border-gray300 mt-[15px]">
+      <div className="flex max-sm:flex-col pt-[10px] border-t-[1px] border-gray300 mt-[15px]">
         {SHARE_BUTTONS.map((button, index) => (
           <ShareButton Icon={button.icon} title={button.title} key={index} />
         ))}

@@ -1,4 +1,4 @@
-import { AiFillHome, AiFillShop } from "react-icons/ai";
+import { AiFillHome, AiFillShop, AiFillLike } from "react-icons/ai";
 import {
   FaUserFriends,
   FaBell,
@@ -82,7 +82,7 @@ export const SHARE_BUTTONS = [
 ];
 
 export const POST_BUTTONS = [
-  { icon: BiLike, title: "Like" },
+  { icon: BiLike, iconFilled: AiFillLike, title: "Like" },
   { icon: BiComment, title: "Comment" },
   { icon: RiShareForwardLine, title: "Share" },
 ];
