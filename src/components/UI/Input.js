@@ -11,7 +11,7 @@ function Input({ withIcon, className, fieldResponsive, placeholder }) {
         placeholder={placeholder}
         className={`${
           withIcon && 'ml-[10px]'
-        } bg-transparent font-light w-[100%] text-[15px] text-gray400 placeholder:text-gray400 outline-0 ${fieldResponsive}`}
+        } bg-transparent placeholder:font-light w-[100%] text-[15px] text-gray400 placeholder:text-gray400 outline-0 ${fieldResponsive}`}
       />
     </div>
   );

@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import Stories from './Stories';
 import Share from './Share';
+import Posts from './Posts';
 
 function Feed() {
   const mobileMenuOpened = useSelector((state) => state.mobileMenuOpened);
@@ -14,6 +15,7 @@ function Feed() {
     >
       <Stories />
       <Share />
+      <Posts />
     </div>
   );
 }
