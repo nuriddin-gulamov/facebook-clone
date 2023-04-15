@@ -4,7 +4,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 
 function PostHeader({ Icon, name, posted, pPublic }) {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center px-[10px]">
       <div className="flex items-center">
         <div className="h-[40px] w-[40px] flex justify-center items-center bg-gray100 rounded-full">
           <Icon />

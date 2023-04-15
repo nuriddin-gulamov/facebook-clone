@@ -11,10 +11,18 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   if (action.type === "OpenMobileMenu") {
-    return { mobileMenuOpened: true };
+    return {
+      mobileMenuOpened: true,
+      stories: state.stories,
+      posts: state.posts,
+    };
   }
   if (action.type === "CloseMobileMenu") {
-    return { mobileMenuOpened: false };
+    return {
+      mobileMenuOpened: false,
+      stories: state.stories,
+      posts: state.posts,
+    };
   }
 
   return state;
