@@ -18,6 +18,7 @@ function Post({ postData }) {
         commentCount={postData.commentCount}
         shareCount={postData.shareCount}
         liked={postData.liked}
+        postId={postData.id}
       />
     </div>
   );

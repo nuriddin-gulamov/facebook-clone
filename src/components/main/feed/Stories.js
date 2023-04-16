@@ -12,8 +12,8 @@ function Stories() {
           <Story
             Icon={story.icon}
             name={story.name}
-            key={index}
             index={index}
+            key={index}
           />
         </div>
       ))}
@@ -22,8 +22,8 @@ function Stories() {
           <Story
             Icon={story.icon}
             name={story.name}
-            key={index}
             index={index}
+            key={index}
           />
         </div>
       ))}

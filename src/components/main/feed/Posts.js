@@ -7,8 +7,8 @@ function Posts() {
 
   return (
     <div className="w-[90%] pt-[35px]">
-      {POSTS.map((post) => (
-        <Post postData={post} />
+      {POSTS.map((post, index) => (
+        <Post postData={post} key={index} />
       ))}
     </div>
   );

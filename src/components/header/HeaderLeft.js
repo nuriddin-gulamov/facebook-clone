@@ -1,19 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { BiMenu } from 'react-icons/bi';
+import { useDispatch } from "react-redux";
+import { BiMenu } from "react-icons/bi";
 
-import Input from '../UI/Input';
-import logo from '../../assets/logo.png';
+import Input from "../UI/Input";
+import logo from "../../assets/logo.png";
 
 function HeaderLeft() {
-  const mobileMenuOpened = useSelector((state) => state.mobileMenuOpened);
   const dispatcher = useDispatch();
 
   function toggleMobileMenu() {
-    if (mobileMenuOpened) {
-      dispatcher({ type: 'CloseMobileMenu' });
-    } else {
-      dispatcher({ type: 'OpenMobileMenu' });
-    }
+    dispatcher({ type: "TOGGLE_MOBILE_MENU" });
   }
 
   return (

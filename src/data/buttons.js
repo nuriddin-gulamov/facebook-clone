@@ -1,4 +1,4 @@
-import { AiFillHome, AiFillShop, AiFillLike } from "react-icons/ai";
+import { AiFillHome, AiFillShop } from "react-icons/ai";
 import {
   FaUserFriends,
   FaBell,
@@ -10,7 +10,7 @@ import { RiMovieFill, RiShareForwardLine } from "react-icons/ri";
 import { MdGroups, MdFeedback } from "react-icons/md";
 import { BsFillGrid3X3GapFill, BsMessenger } from "react-icons/bs";
 import { SiFacebookgaming } from "react-icons/si";
-import { BiLike, BiComment } from "react-icons/bi";
+import { BiComment } from "react-icons/bi";
 import {
   FcAlarmClock,
   FcConferenceCall,
@@ -82,7 +82,6 @@ export const SHARE_BUTTONS = [
 ];
 
 export const POST_BUTTONS = [
-  { icon: BiLike, iconFilled: AiFillLike, title: "Like" },
   { icon: BiComment, title: "Comment" },
   { icon: RiShareForwardLine, title: "Share" },
 ];

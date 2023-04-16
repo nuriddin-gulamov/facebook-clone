@@ -1,4 +1,4 @@
-import { HEADER_RIGHT_BUTTONS } from '../../data/buttons';
+import { HEADER_RIGHT_BUTTONS } from "../../data/buttons";
 
 function HeaderRight() {
   return (
@@ -7,7 +7,12 @@ function HeaderRight() {
         const Icon = button.icon;
 
         return (
-          <button className={`w-[40px] h-[40px] flex justify-center items-center bg-gray300 rounded-full ${index !== 0 && 'ml-[10px]'}`}>
+          <button
+            className={`w-[40px] h-[40px] flex justify-center items-center bg-gray300 rounded-full ${
+              index !== 0 && "ml-[10px]"
+            }`}
+            key={index}
+          >
             <Icon className="text-[19px] text-black100" />
           </button>
         );
