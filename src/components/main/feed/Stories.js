@@ -11,6 +11,7 @@ function Stories() {
         <div className="max-sm:hidden">
           <Story
             Icon={story.icon}
+            imgName={story.imgName}
             name={story.name}
             index={index}
             key={index}
@@ -21,6 +22,7 @@ function Stories() {
         <div className="sm:hidden">
           <Story
             Icon={story.icon}
+            imgName={story.imgName}
             name={story.name}
             index={index}
             key={index}

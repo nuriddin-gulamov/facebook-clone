@@ -11,28 +11,15 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case "LIKE_POST":
+    case "TOGGLE_POST_LIKE":
       return {
         ...state,
         posts: state.posts.map((post) => {
           if (post.id === action.payload.postId) {
             return {
               ...post,
-              liked: true,
-            };
-          }
-          return post;
-        }),
-      };
-    case "UNLIKE_POST":
-      return {
-        ...state,
-        posts: state.posts.map((post) => {
-          if (post.id === action.payload.postId) {
-            return {
-              ...post,
-              liked: false,
-              likeCount:  post.likeCount + 1,
+              liked: !post.liked,
+              likeCount: post.likeCount + (post.liked ? -1 : 1),
             };
           }
           return post;

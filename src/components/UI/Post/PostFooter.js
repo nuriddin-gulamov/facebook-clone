@@ -11,11 +11,7 @@ function PostFooter({ likeCount, commentCount, shareCount, liked, postId }) {
   let LikeIcon = liked ? AiFillLike : BiLike;
 
   function likeHandler() {
-    if (liked) {
-      dispatcher({ type: "LIKE_POST", payload: { postId } });
-    } else {
-      dispatcher({ type: "UNLIKE_POST", payload: { postId } });
-    }
+    dispatcher({ type: "TOGGLE_POST_LIKE", payload: { postId } });
   }
 
   return (

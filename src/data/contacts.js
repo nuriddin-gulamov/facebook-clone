@@ -8,7 +8,7 @@ const CONTACTS = [
   { icon: FaUser, name: 'Barack Obama' },
   { icon: FaUser, name: 'Donald Trump' },
   { icon: FaUser, name: 'Andrew Tate' },
-  { icon: FaUser, name: 'Tristian Tate' },
+  { icon: FaUser, name: 'Tristan Tate' },
   { icon: FaUser, name: 'Shavkat Mirziyoyev' },
   { icon: FaUser, name: 'Nuriddin Gulamov' },
 ];
