@@ -7,6 +7,7 @@ const initialState = {
   posts: POSTS,
   stories: STORIES,
   mobileMenuOpened: false,
+  isAuthenticated: false,
 };
 
 function reducer(state = initialState, action) {
@@ -30,6 +31,18 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         mobileMenuOpened: !state.mobileMenuOpened,
+      };
+
+    case "AUTHENTICATE":
+      return {
+        ...state,
+        isAuthenticated: true,
+      };
+
+    case "UNAUTHENTICATE":
+      return {
+        ...state,
+        isAuthenticated: false,
       };
 
     default:

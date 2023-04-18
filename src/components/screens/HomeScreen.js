@@ -1,5 +1,5 @@
-import Header from "../../header/Header";
-import Main from "../../main/Main";
+import Header from "../header/Header";
+import Main from "../main/Main";
 
 function HomeScreen() {
     return <div className="min-h-[100vh] bg-gray100">
