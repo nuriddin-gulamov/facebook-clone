@@ -94,8 +94,8 @@ function LoginScreen() {
           alt="Facebook Clone"
           className="w-[200px] h-[70px]"
         />
-        <div className="px-[22px]">
-          <h1 className="text-[30px]">Facebook - Clone</h1>
+        <div className="px-[22px] max-[310px]:px-[5px]">
+          <h1 className="text-[30px] max-[310px]:text-[25px] max-[310px]:text-center">Facebook - Clone</h1>
           <p className="mt-[20px]">
             This is a Facebook Clone Project built by Nuriddin Gulamov. <br />{" "}
             Only the use of this project is allowed, <br /> please do not claim
@@ -103,7 +103,7 @@ function LoginScreen() {
           </p>
         </div>
       </div>
-      <div className="min-w-[400px] max-sm:min-w-[300px] min-h-[400px] bg-white rounded-lg shadow-lg max-lg:mt-[25px] p-[20px]">
+      <div className="min-w-[400px] max-sm:min-w-[300px] max-[310px]:min-w-[250px] min-h-[400px] bg-white rounded-lg shadow-lg max-lg:mt-[25px] p-[20px]">
         <form onSubmit={handleSubmit}>
           <AuthInput
             placeholder="Email"
@@ -144,7 +144,7 @@ function LoginScreen() {
           <div className="pt-[35px] mt-[20px] border-t-[1px] border-gray300 flex justify-center">
             <button
               onClick={handleSignUpToggle}
-              className="w-[60%] min-h-[55px] bg-green hover:bg-green200 text-white rounded-md px-[15p] py-[10px] text-[18px] font-bold transition duration200 ease"
+              className="min-w-[60%] min-h-[55px] bg-green hover:bg-green200 text-white rounded-md px-[15px] py-[10px] text-[18px] font-bold transition duration200 ease"
             >
               {isSignUp ? "Log In instead" : "Create new account"}
             </button>

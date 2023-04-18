@@ -17,7 +17,7 @@ function HeaderRight() {
 
         return (
           <button
-            className={`w-[40px] h-[40px] flex justify-center items-center bg-gray300 rounded-full ${
+            className={`w-[40px] h-[40px] max-sm:hidden flex justify-center items-center bg-gray300 rounded-full ${
               index !== 0 && "ml-[10px]"
             }`}
             key={index}

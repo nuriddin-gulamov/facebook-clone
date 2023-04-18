@@ -26,16 +26,16 @@ function PostFooter({ likeCount, commentCount, shareCount, liked, postId }) {
           <p className="ml-[10px]">{shareCount} shares</p>
         </div>
       </div>
-      <div className="flex items-center border-t-[1px] border-gray300 pt-[5px]">
+      <div className="flex max-[310px]:flex-col items-center border-t-[1px] border-gray300 pt-[5px]">
         <button
           onClick={likeHandler}
-          className="px-[10px] py-[5px] flex justify-center items-center w-[100%] hover:bg-gray100 rounded-lg transition duration200 ease"
+          className="px-[10px] py-[5px] flex justify-center max-[310px]:justify-start items-center w-[100%] hover:bg-gray100 rounded-lg transition duration200 ease"
         >
           <LikeIcon className="text-[22px]" />
           <p className="ml-[10px] text-gray350 text-[16px]">Like</p>
         </button>
         {POST_BUTTONS.map((button, index) => (
-          <ShareButton Icon={button.icon} title={button.title} key={index} />
+          <ShareButton Icon={button.icon} className='justify-center max-[310px]:justify-start' title={button.title} key={index} />
         ))}
       </div>
     </div>

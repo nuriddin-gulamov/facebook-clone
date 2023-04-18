@@ -9,7 +9,7 @@ function Feed() {
 
   return (
     <div
-      className={`py-[20px] px-[10px] flex flex-col flex-4 items-center ${
+      className={`py-[20px] px-[10px] max-sm:px-[5px] flex flex-col flex-4 items-center max-[310px]:items-start ${
         mobileMenuOpened && "hidden"
       }`}
     >
