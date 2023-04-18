@@ -8,12 +8,12 @@ import AuthButton from "../UI/buttons/AuthButton";
 import facebook from "../../assets/facebook.svg";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDb7hMtwS7d8zKy9DL9hbOAdM8SfD1ryH4",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "facebook-clone-n.firebaseapp.com",
   projectId: "facebook-clone-n",
   storageBucket: "facebook-clone-n.appspot.com",
-  messagingSenderId: "1030920978955",
-  appId: "1:1030920978955:web:193c302ebf6f51a2fffd0e",
+  messagingSenderId: process.env.REACT_APP_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -95,7 +95,9 @@ function LoginScreen() {
           className="w-[200px] h-[70px]"
         />
         <div className="px-[22px] max-[310px]:px-[5px]">
-          <h1 className="text-[30px] max-[310px]:text-[25px] max-[310px]:text-center">Facebook - Clone</h1>
+          <h1 className="text-[30px] max-[310px]:text-[25px] max-[310px]:text-center">
+            Facebook - Clone
+          </h1>
           <p className="mt-[20px]">
             This is a Facebook Clone Project built by Nuriddin Gulamov. <br />{" "}
             Only the use of this project is allowed, <br /> please do not claim
