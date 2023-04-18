@@ -41,19 +41,25 @@ function LoginScreen() {
 
     try {
       if (isSignUp) {
-        // Sign up new user
-        await firebase
+        const userCredentials = await firebase
           .auth()
           .createUserWithEmailAndPassword(enteredEmail, enteredPassword);
+        const user = userCredentials.user;
+        const token = user.getIdToken();
 
-        dispatcher({ type: "AUTHENTICATE" });
+        if (token) {
+          dispatcher({ type: "AUTHENTICATE" });
+        }
       } else {
-        // Log in existing user
-        await firebase
+        const userCredentials = await firebase
           .auth()
           .signInWithEmailAndPassword(enteredEmail, enteredPassword);
+        const user = userCredentials.user;
+        const token = user.getIdToken();
 
-        dispatcher({ type: "AUTHENTICATE" });
+        if (token) {
+          dispatcher({ type: "AUTHENTICATE" });
+        }
       }
     } catch (error) {
       console.error(error.message);
@@ -78,7 +84,7 @@ function LoginScreen() {
             className="mt-[15px]"
           />
           <div className="mt-[15px] flex justify-center">
-            <a className="text-primary text-[16px] hover:underline">
+            <a className="text-primary text-[16px] hover:underline cursor-pointer">
               Forgot your password?
             </a>
           </div>

@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import LoginScreen from "./components/screens/AuthScreen";
 import HomeScreen from "./components/screens/HomeScreen";
 
 function App() {
-  // eslint-disable-next-line
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   return <>{isAuthenticated ? <HomeScreen /> : <LoginScreen />}</>;
 }

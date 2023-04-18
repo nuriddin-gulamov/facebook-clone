@@ -44,7 +44,6 @@ export const HEADER_RIGHT_BUTTONS = [
   { icon: BsFillGrid3X3GapFill },
   { icon: BsMessenger },
   { icon: FaBell },
-  { icon: FaUserAlt },
 ];
 
 export const SIDEBAR_BUTTONS = [
