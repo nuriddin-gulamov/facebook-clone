@@ -57,7 +57,7 @@ function LoginScreen() {
       }
     } catch (error) {
       console.error(error.message);
-      
+
       dispatcher({ type: "UNAUTHENTICATE" });
     }
   };
