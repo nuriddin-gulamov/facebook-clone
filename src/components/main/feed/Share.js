@@ -1,6 +1,6 @@
 import { FaUser } from 'react-icons/fa';
 
-import Input from '../../UI/Input';
+import Input from '../../UI/inputs/Input';
 import { SHARE_BUTTONS } from '../../../data/buttons';
 import ShareButton from '../../UI/buttons/ShareButton';
 

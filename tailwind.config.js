@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "#1a74e4",
+        primary200: "#145fbb",
         gray100: "#f0f2f5",
         gray200: "#f2f2f2",
         gray250: "#e4e5e8",
@@ -12,6 +13,8 @@ module.exports = {
         gray300: "#d8dade",
         gray350: "#606266",
         gray400: "#65676b",
+        green: "#3ebb25",
+        green200: "#35a420",
         black100: "#050505",
       },
       flex: {

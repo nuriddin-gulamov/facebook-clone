@@ -1,11 +1,13 @@
-import Header from "./components/header/Header";
-import Main from "./components/main/Main";
+import { useState } from "react";
+
+import LoginScreen from "./components/screens/auth/LoginScreen";
+import HomeScreen from "./components/screens/home/HomeScreen";
 
 function App() {
-  return <div className="min-h-[100vh] bg-gray100">
-    <Header />
-    <Main />
-  </div>;
+  // eslint-disable-next-line
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  return <>{isAuthenticated ? <HomeScreen /> : <LoginScreen />}</>;
 }
 
 export default App;
