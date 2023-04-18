@@ -16,6 +16,7 @@ module.exports = {
         green: "#3ebb25",
         green200: "#35a420",
         black100: "#050505",
+        red: '#fb0000',
       },
       flex: {
         2: "2 2 0%",

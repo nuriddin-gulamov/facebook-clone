@@ -2,7 +2,6 @@ import { AiFillHome, AiFillShop } from "react-icons/ai";
 import {
   FaUserFriends,
   FaBell,
-  FaUserAlt,
   FaUser,
   FaLeaf,
 } from "react-icons/fa";
