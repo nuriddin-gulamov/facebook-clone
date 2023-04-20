@@ -139,7 +139,10 @@ function LoginScreen() {
             className="mt-[15px]"
           />
           <div className="mt-[15px] flex justify-center">
-            <a className="text-primary text-[16px] hover:underline cursor-pointer">
+            <a
+              href="/"
+              className="text-primary text-[16px] hover:underline cursor-pointer"
+            >
               Forgot your password?
             </a>
           </div>
