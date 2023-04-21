@@ -21,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 function LoginScreen() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
 
   const [credentialWarnings, setCredentialWarnings] = useState(false);
   const [wrongCredentials, setWrongCredentials] = useState(false);
@@ -42,7 +42,7 @@ function LoginScreen() {
     setIsSignUp(!isSignUp);
   }
 
-  const handleSubmit = async function (event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     setWrongCredentials(false);
@@ -84,7 +84,7 @@ function LoginScreen() {
       setCredentialWarnings(true);
       setWrongCredentials(true);
     }
-  };
+  }
 
   return (
     <div className="min-h-[100vh] px-[35px] py-[25px] bg-gray100 flex max-lg:flex-col max-lg:justify-center justify-around items-center">

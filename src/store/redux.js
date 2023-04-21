@@ -45,6 +45,12 @@ function reducer(state = initialState, action) {
         isAuthenticated: false,
       };
 
+    case "GET_POSTS":
+      return {
+        ...state,
+        posts: action.payload.posts,
+      };
+
     default:
       return state;
   }
