@@ -1,22 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 import AuthInput from "../UI/inputs/AuthInput";
 import AuthButton from "../UI/buttons/AuthButton";
 import facebook from "../../assets/facebook.svg";
-
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: "facebook-clone-n.firebaseapp.com",
-  projectId: "facebook-clone-n",
-  storageBucket: "facebook-clone-n.appspot.com",
-  messagingSenderId: process.env.REACT_APP_ID,
-  appId: process.env.REACT_APP_APP_ID,
-};
-
-firebase.initializeApp(firebaseConfig);
+import { auth } from "../../store/firebase";
 
 function LoginScreen() {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -58,9 +50,11 @@ function LoginScreen() {
 
     try {
       if (isSignUp) {
-        const userCredentials = await firebase
-          .auth()
-          .createUserWithEmailAndPassword(enteredEmail, enteredPassword);
+        const userCredentials = await createUserWithEmailAndPassword(
+          auth,
+          enteredEmail,
+          enteredPassword
+        );
         const user = userCredentials.user;
         const token = user.getIdToken();
 
@@ -68,9 +62,11 @@ function LoginScreen() {
           dispatcher({ type: "AUTHENTICATE" });
         }
       } else {
-        const userCredentials = await firebase
-          .auth()
-          .signInWithEmailAndPassword(enteredEmail, enteredPassword);
+        const userCredentials = await signInWithEmailAndPassword(
+          auth,
+          enteredEmail,
+          enteredPassword
+        );
         const user = userCredentials.user;
         const token = user.getIdToken();
 
