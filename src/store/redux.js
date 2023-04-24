@@ -1,10 +1,13 @@
 import { createStore } from "redux";
+import { ref } from "firebase/database";
 
-import POSTS from "../data/posts";
+import { database } from "./firebase";
 import STORIES from "../data/stories";
 
+console.log(database);
+
 const initialState = {
-  posts: POSTS,
+  posts: [],
   stories: STORIES,
   mobileMenuOpened: false,
   isAuthenticated: false,
@@ -13,14 +16,29 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case "TOGGLE_POST_LIKE":
+      const postId = action.payload.postId;
+      const userId = action.payload.userId;
+      const postLiked = state.posts.find((post) => post.id === postId).liked;
+      const postRef = ref(database, `posts/${postId}`);
+      const likeCountRef = postRef.child("likeCount");
+      const likedByRef = postRef.child("likedBy");
+
+      if (postLiked) {
+        likeCountRef.transaction((count) => count - 1);
+        likedByRef.child(userId).remove();
+      } else {
+        likeCountRef.transaction((count) => count + 1);
+        likedByRef.child(userId).set(true);
+      }
+
       return {
         ...state,
         posts: state.posts.map((post) => {
-          if (post.id === action.payload.postId) {
+          if (post.id === postId) {
             return {
               ...post,
-              liked: !post.liked,
-              likeCount: post.likeCount + (post.liked ? -1 : 1),
+              liked: !postLiked,
+              likeCount: post.likeCount + (postLiked ? -1 : 1),
             };
           }
           return post;

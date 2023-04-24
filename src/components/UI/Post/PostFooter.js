@@ -4,6 +4,7 @@ import { AiFillLike } from "react-icons/ai";
 
 import { POST_BUTTONS } from "../../../data/buttons";
 import ShareButton from "../buttons/ShareButton";
+import { auth } from "../../../store/firebase";
 
 function PostFooter({ likeCount, commentCount, shareCount, liked, postId }) {
   const dispatcher = useDispatch();
@@ -11,7 +12,10 @@ function PostFooter({ likeCount, commentCount, shareCount, liked, postId }) {
   let LikeIcon = liked ? AiFillLike : BiLike;
 
   function likeHandler() {
-    dispatcher({ type: "TOGGLE_POST_LIKE", payload: { postId } });
+    dispatcher({
+      type: "TOGGLE_POST_LIKE",
+      payload: { postId, userId: auth.currentUser.uid },
+    });
   }
 
   return (
@@ -35,7 +39,12 @@ function PostFooter({ likeCount, commentCount, shareCount, liked, postId }) {
           <p className="ml-[10px] text-gray350 text-[16px]">Like</p>
         </button>
         {POST_BUTTONS.map((button, index) => (
-          <ShareButton Icon={button.icon} className='justify-center max-[310px]:justify-start' title={button.title} key={index} />
+          <ShareButton
+            Icon={button.icon}
+            className="justify-center max-[310px]:justify-start"
+            title={button.title}
+            key={index}
+          />
         ))}
       </div>
     </div>
