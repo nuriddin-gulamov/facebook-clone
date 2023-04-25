@@ -13,8 +13,8 @@ function PostFooter({ likeCount, commentCount, shareCount, liked, postId }) {
 
   function likeHandler() {
     dispatcher({
-      type: "TOGGLE_POST_LIKE",
-      payload: { postId, userId: auth.currentUser.uid },
+      type: "HANDLE_POST_LIKE",
+      payload: { userId: auth.currentUser.uid, postId },
     });
   }
 

@@ -1,10 +1,8 @@
 import { createStore } from "redux";
-import { ref } from "firebase/database";
+import { ref, set } from "firebase/database";
 
 import { database } from "./firebase";
 import STORIES from "../data/stories";
-
-console.log(database);
 
 const initialState = {
   posts: [],
@@ -15,36 +13,6 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case "TOGGLE_POST_LIKE":
-      const postId = action.payload.postId;
-      const userId = action.payload.userId;
-      const postLiked = state.posts.find((post) => post.id === postId).liked;
-      const postRef = ref(database, `posts/${postId}`);
-      const likeCountRef = postRef.child("likeCount");
-      const likedByRef = postRef.child("likedBy");
-
-      if (postLiked) {
-        likeCountRef.transaction((count) => count - 1);
-        likedByRef.child(userId).remove();
-      } else {
-        likeCountRef.transaction((count) => count + 1);
-        likedByRef.child(userId).set(true);
-      }
-
-      return {
-        ...state,
-        posts: state.posts.map((post) => {
-          if (post.id === postId) {
-            return {
-              ...post,
-              liked: !postLiked,
-              likeCount: post.likeCount + (postLiked ? -1 : 1),
-            };
-          }
-          return post;
-        }),
-      };
-
     case "TOGGLE_MOBILE_MENU":
       return {
         ...state,
@@ -66,7 +34,44 @@ function reducer(state = initialState, action) {
     case "GET_POSTS":
       return {
         ...state,
-        posts: action.payload.posts,
+        posts: [...action.payload.posts],
+      };
+
+    case "HANDLE_POST_LIKE":
+      const userId = action.payload.userId;
+      const postId = action.payload.postId;
+      const currentPost = state.posts.find((post) => post.id === postId);
+      const userHasLiked = currentPost.likedBy.includes(userId);
+
+      const likedByRef = ref(database, `posts/${postId}/likedBy`);
+
+      if (userHasLiked) {
+        set(
+          likedByRef,
+          currentPost.likedBy.filter((id) => id !== userId)
+        );
+      } else {
+        set(likedByRef, [...currentPost.likedBy, userId]);
+      }
+
+      const updatedPosts = state.posts.map((post) => {
+        if (post.id === postId) {
+          const newLikedBy = userHasLiked
+            ? currentPost.likedBy.filter((id) => id !== userId)
+            : [...currentPost.likedBy, userId];
+
+          // Only create a new post object if the likedBy array is actually changed
+          return newLikedBy === currentPost.likedBy
+            ? post
+            : { ...post, liked: !userHasLiked, likedBy: newLikedBy };
+        }
+
+        return post;
+      });
+
+      return {
+        ...state,
+        posts: updatedPosts,
       };
 
     default:

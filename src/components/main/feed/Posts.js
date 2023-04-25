@@ -5,6 +5,8 @@ import Post from "../../UI/post/Post";
 function Posts() {
   const POSTS = useSelector((state) => state.posts);
 
+  // console.log(POSTS)
+
   return (
     <div className="w-[90%] max-[310px]:w-[95%] pt-[35px]">
       {POSTS.map((post, index) => (

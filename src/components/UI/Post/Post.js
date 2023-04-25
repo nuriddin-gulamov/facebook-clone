@@ -6,6 +6,8 @@ import PostBody from "./PostBody";
 import PostFooter from "./PostFooter";
 
 function Post({ postData }) {
+  console.log(postData.likedBy);
+
   return (
     <div className="w-[100%] bg-white rounded-lg shadow-md py-[10px]">
       <PostHeader
@@ -20,7 +22,7 @@ function Post({ postData }) {
         image={postData.image === "post" && post}
       />
       <PostFooter
-        likeCount={postData.likeCount}
+        likeCount={postData.likedBy.length}
         commentCount={postData.commentCount}
         shareCount={postData.shareCount}
         liked={postData.liked}
