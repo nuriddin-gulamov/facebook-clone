@@ -6,19 +6,19 @@ You can feel free to view any code written for this project through this reposit
 
 ## How to see the project?
 
-To check how it runs live on your computer, you can run
+To check how it runs live on your computer, you can run the following commands
 
 Open your terminal, and run:
 
 ### `git clone https://github.com/nuriddin-gulamov/facebook-clone`
 
-This command will clone this repository to your computer.
+This command will clone this repository to your directory.
 
 ### `npm install`
 
-This command installs all the dependencies that you need to run the app.
+This command installs all the dependencies that you need in order to run the app.
 
 ### `npm start`
 
 Launches the project on your browser.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser. (if it doesn't automatically)
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser (if it doesn't automatically), and you're ready to go. ✅
