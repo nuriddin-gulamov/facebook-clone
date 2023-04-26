@@ -7,7 +7,7 @@ function PostHeader({ Icon, name, posted, pPublic }) {
     <div className="flex justify-between items-center px-[10px]">
       <div className="flex items-center">
         <div className="h-[40px] w-[40px] flex justify-center items-center bg-gray100 rounded-full">
-          <Icon />
+          <img src={Icon} alt="" className="rounded-full" />
         </div>
         <div className="ml-[15px]">
           <h3 className="leading-5">{name}</h3>

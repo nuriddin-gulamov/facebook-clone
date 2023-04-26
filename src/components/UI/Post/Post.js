@@ -1,16 +1,21 @@
 import { FaUser } from "react-icons/fa";
-import post from "../../../assets/posts/1.png";
 
 import PostHeader from "./PostHeader";
 import PostBody from "./PostBody";
 import PostFooter from "./PostFooter";
+import post from "../../../assets/posts/1.png";
+import nuriddin from "../../../assets/posts/avatars/1.png";
 
-function Post({ postData }) {
+function Post({ postData, index }) {
   return (
-    <div className="w-[100%] bg-white rounded-lg shadow-md py-[10px]">
+    <div
+      className={`w-[100%] bg-white rounded-lg shadow-md py-[10px] ${
+        index !== 0 && "mt-[15px]"
+      }`}
+    >
       <PostHeader
         id={postData.id}
-        Icon={postData.icon === "user" && FaUser}
+        Icon={postData.icon === "user" && nuriddin}
         name={postData.name}
         posted={postData.posted}
         pPublic={postData.public}

@@ -19,20 +19,12 @@ function Sidebar() {
 
   return (
     <div
-      className={`flex flex-col flex-2 py-[20px] px-[10px] ${
+      className={`flex flex-col justify-between flex-2 py-[20px] px-[10px] ${
         !mobileMenuOpened && "max-lg:hidden"
       }`}
     >
-      {SIDEBAR_BUTTONS.map((button, index) => (
-        <SidebarButton
-          Icon={button.icon}
-          title={button.title}
-          key={index}
-          index={index}
-        />
-      ))}
-      {moreButtonsOpened &&
-        SIDEBAR_MORE_BUTTONS.map((button, index) => (
+      <div className="flex flex-col">
+        {SIDEBAR_BUTTONS.map((button, index) => (
           <SidebarButton
             Icon={button.icon}
             title={button.title}
@@ -40,21 +32,36 @@ function Sidebar() {
             index={index}
           />
         ))}
-      <button
-        className="flex items-center py-[10px] px-[15px] rounded-lg hover:bg-gray250 mt-[5px]"
-        onClick={toggleMoreButtons}
-      >
-        <div className="w-[28px] h-[28px] flex justify-center items-center bg-gray275 rounded-full">
-          {moreButtonsOpened ? (
-            <SlArrowUp className="text-[15px]" />
-          ) : (
-            <SlArrowDown className="text-[15px]" />
-          )}
-        </div>
-        <p className="ml-[15px]">
-          {moreButtonsOpened ? "See Less" : "See More"}
+        {moreButtonsOpened &&
+          SIDEBAR_MORE_BUTTONS.map((button, index) => (
+            <SidebarButton
+              Icon={button.icon}
+              title={button.title}
+              key={index}
+              index={index}
+            />
+          ))}
+        <button
+          className="flex items-center py-[10px] px-[15px] rounded-lg hover:bg-gray250 mt-[5px]"
+          onClick={toggleMoreButtons}
+        >
+          <div className="w-[28px] h-[28px] flex justify-center items-center bg-gray275 rounded-full">
+            {moreButtonsOpened ? (
+              <SlArrowUp className="text-[15px]" />
+            ) : (
+              <SlArrowDown className="text-[15px]" />
+            )}
+          </div>
+          <p className="ml-[15px]">
+            {moreButtonsOpened ? "See Less" : "See More"}
+          </p>
+        </button>
+      </div>
+      <footer className="mt-[15px] px-[15px]">
+        <p className="text-[14px]">
+          Nuriddin Gulamov - Facebook Clone &copy; 2023
         </p>
-      </button>
+      </footer>
     </div>
   );
 }
