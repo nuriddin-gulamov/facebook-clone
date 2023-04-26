@@ -7,27 +7,30 @@ import {
 
 import AuthInput from "../UI/inputs/AuthInput";
 import AuthButton from "../UI/buttons/AuthButton";
-import facebook from "../../assets/facebook.svg";
+import full from "../../assets/logos/full.svg";
 import { auth } from "../../store/firebase";
 
 function LoginScreen() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [isSignUp, setIsSignUp] = useState(true);
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const [credentialWarnings, setCredentialWarnings] = useState(false);
   const [wrongCredentials, setWrongCredentials] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const dispatcher = useDispatch();
 
   function handleEmailInputChange(event) {
     setEnteredEmail(event.target.value);
     setCredentialWarnings(false);
+    setWrongCredentials(false);
   }
 
   function handlePasswordInputChange(event) {
     setEnteredPassword(event.target.value);
     setCredentialWarnings(false);
+    setWrongCredentials(false);
   }
 
   function handleSignUpToggle() {
@@ -38,6 +41,7 @@ function LoginScreen() {
     event.preventDefault();
 
     setWrongCredentials(false);
+    setErrorMessage("");
 
     if (
       enteredEmail.trim().length === 0 ||
@@ -75,7 +79,24 @@ function LoginScreen() {
         }
       }
     } catch (error) {
-      console.error(error.message);
+      switch (error.code) {
+        case "auth/network-request-failed":
+          setErrorMessage(
+            "Your internet connection is not stable, please try again"
+          );
+          break;
+
+        case "auth/wrong-password":
+          setErrorMessage("Your password is incorrect");
+          break;
+
+        case "auth/email-already-in-use":
+          setErrorMessage("User with this email already exists.");
+          break;
+
+        default:
+          setErrorMessage("An unknown error occured, please try again later.");
+      }
       dispatcher({ type: "UNAUTHENTICATE" });
       setCredentialWarnings(true);
       setWrongCredentials(true);
@@ -85,11 +106,7 @@ function LoginScreen() {
   return (
     <div className="min-h-[100vh] px-[35px] py-[25px] bg-gray100 flex max-lg:flex-col max-lg:justify-center justify-around items-center">
       <div className="lg:min-h-[350px]">
-        <img
-          src={facebook}
-          alt="Facebook Clone"
-          className="w-[200px] h-[70px]"
-        />
+        <img src={full} alt="Facebook Clone" className="w-[200px] h-[70px]" />
         <div className="px-[22px] max-[310px]:px-[5px]">
           <h1 className="text-[30px] max-[310px]:text-[25px] max-[310px]:text-center">
             Facebook - Clone
@@ -106,6 +123,7 @@ function LoginScreen() {
           <AuthInput
             placeholder="Email"
             onChange={handleEmailInputChange}
+            type="email"
             className={
               credentialWarnings
                 ? "border-red outline-0"
@@ -119,6 +137,7 @@ function LoginScreen() {
                 ? "border-red outline-0"
                 : "border-gray300 outline-1"
             }`}
+            type="password"
             onChange={handlePasswordInputChange}
           />
           <p
@@ -126,8 +145,7 @@ function LoginScreen() {
               wrongCredentials ? null : "hidden"
             }`}
           >
-            Wrong email or password, please check your credentials or try again
-            later.
+            {errorMessage}
           </p>
           <AuthButton
             title={isSignUp ? "Sign Up" : "Log In"}
@@ -145,6 +163,7 @@ function LoginScreen() {
           <div className="pt-[35px] mt-[20px] border-t-[1px] border-gray300 flex justify-center">
             <button
               onClick={handleSignUpToggle}
+              type="button"
               className="min-w-[60%] min-h-[55px] bg-green hover:bg-green200 text-white rounded-md px-[15px] py-[10px] text-[18px] font-bold transition duration200 ease"
             >
               {isSignUp ? "Log In instead" : "Create new account"}

@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { BiMenu } from "react-icons/bi";
 
 import Input from "../UI/inputs/Input";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logos/logo.png";
 
 function HeaderLeft() {
   const dispatcher = useDispatch();

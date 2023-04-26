@@ -1,13 +1,11 @@
 import { FaUser } from "react-icons/fa";
-import post from "../../../assets/post.png";
+import post from "../../../assets/posts/1.png";
 
 import PostHeader from "./PostHeader";
 import PostBody from "./PostBody";
 import PostFooter from "./PostFooter";
 
 function Post({ postData }) {
-  console.log(postData.likedBy);
-
   return (
     <div className="w-[100%] bg-white rounded-lg shadow-md py-[10px]">
       <PostHeader
