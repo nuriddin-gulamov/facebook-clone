@@ -1,6 +1,6 @@
-import Sidebar from './Sidebar';
-import Feed from './feed/Feed';
-import Contacts from './Contacts';
+import Sidebar from "./Sidebar";
+import Feed from "./feed/Feed";
+import Contacts from "./Contacts";
 
 function Main() {
   return (

@@ -1,8 +1,8 @@
-import { FaUser } from 'react-icons/fa';
+import { FaUser } from "react-icons/fa";
 
-import Input from '../../UI/inputs/Input';
-import { SHARE_BUTTONS } from '../../../data/buttons';
-import ShareButton from '../../UI/buttons/ShareButton';
+import Input from "../../UI/inputs/Input";
+import { SHARE_BUTTONS } from "../../../data/buttons";
+import ShareButton from "../../UI/buttons/ShareButton";
 
 function Share() {
   return (
@@ -18,7 +18,12 @@ function Share() {
       </div>
       <div className="flex max-sm:flex-col pt-[10px] border-t-[1px] border-gray300 mt-[15px]">
         {SHARE_BUTTONS.map((button, index) => (
-          <ShareButton Icon={button.icon} title={button.title} className='justify-center max-sm:justify-start' key={index} />
+          <ShareButton
+            Icon={button.icon}
+            title={button.title}
+            className="justify-center max-sm:justify-start"
+            key={index}
+          />
         ))}
       </div>
     </div>

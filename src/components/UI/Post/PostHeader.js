@@ -11,9 +11,9 @@ function PostHeader({ Icon, name, posted, pPublic }) {
         </div>
         <div className="ml-[15px]">
           <h3 className="leading-5">{name}</h3>
-          <div className="flex items-center text-[14px]">
-            <p>{posted}</p>
-            <span className="mx-[3.5px]">·</span>
+          <div className="flex max-[310px]:flex-col max-[310px]:items-start items-center text-[14px]">
+            <p className="max-[310px]:text-[14px]">{posted}</p>
+            <span className="mx-[3.5px] max-[310px]:hidden">·</span>
             {pPublic ? <BiWorld /> : <FaUsers />}
           </div>
         </div>

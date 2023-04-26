@@ -29,7 +29,9 @@ function HomeScreen() {
   return (
     <div className="min-h-[100vh] bg-gray100">
       <Header />
-      <Main />
+      <div className="2xl:container">
+        <Main />
+      </div>
     </div>
   );
 }

@@ -111,10 +111,11 @@ function LoginScreen() {
           <h1 className="text-[30px] max-[310px]:text-[25px] max-[310px]:text-center">
             Facebook - Clone
           </h1>
-          <p className="mt-[20px]">
-            This is a Facebook Clone Project built by Nuriddin Gulamov. <br />{" "}
-            Only the use of this project is allowed, <br /> please do not claim
-            it as your own or use for portfolio.
+          <p className="mt-[20px] max-[310px]:text-center">
+            This is a Facebook Clone Project built by Nuriddin Gulamov.{" "}
+            <br className="max-sm:hidden" /> Only the use of this project is
+            allowed, <br className="max-sm:hidden" /> please do not claim it as
+            your own or use for portfolio.
           </p>
         </div>
       </div>

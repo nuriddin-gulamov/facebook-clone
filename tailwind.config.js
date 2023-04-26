@@ -22,6 +22,9 @@ module.exports = {
         2: "2 2 0%",
         4: "4 4 0%",
       },
+      container: {
+        center: true,
+      },
     },
   },
   plugins: [],

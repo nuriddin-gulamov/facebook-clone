@@ -8,7 +8,7 @@ function Posts() {
   return (
     <div className="w-[90%] max-[310px]:w-[95%] pt-[35px]">
       {POSTS.map((post, index) => (
-        <Post postData={post} key={index} index={index} />
+        <Post postData={post} key={index} />
       ))}
     </div>
   );

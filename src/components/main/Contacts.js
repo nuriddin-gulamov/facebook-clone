@@ -14,7 +14,12 @@ function Contacts() {
     >
       <h2 className="text-[22px] text-gray400 mb-[10px] pl-[15px]">Contacts</h2>
       {CONTACTS.map((contact, index) => (
-        <SidebarButton img={contact.img} title={contact.name} key={index} index={index} />
+        <SidebarButton
+          img={contact.img}
+          title={contact.name}
+          key={index}
+          index={index}
+        />
       ))}
     </div>
   );

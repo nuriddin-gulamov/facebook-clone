@@ -1,10 +1,5 @@
 import { AiFillHome, AiFillShop } from "react-icons/ai";
-import {
-  FaUserFriends,
-  FaBell,
-  FaUser,
-  FaLeaf,
-} from "react-icons/fa";
+import { FaUserFriends, FaBell, FaUser, FaLeaf } from "react-icons/fa";
 import { RiMovieFill, RiShareForwardLine } from "react-icons/ri";
 import { MdGroups, MdFeedback } from "react-icons/md";
 import { BsFillGrid3X3GapFill, BsMessenger } from "react-icons/bs";

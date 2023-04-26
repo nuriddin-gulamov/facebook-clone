@@ -19,7 +19,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`flex flex-col justify-between flex-2 py-[20px] px-[10px] ${
+      className={`flex flex-col flex-2 py-[20px] px-[10px] ${
         !mobileMenuOpened && "max-lg:hidden"
       }`}
     >
@@ -57,7 +57,7 @@ function Sidebar() {
           </p>
         </button>
       </div>
-      <footer className="mt-[15px] px-[15px]">
+      <footer className="mt-[25px] px-[15px]">
         <p className="text-[14px]">
           Nuriddin Gulamov - Facebook Clone &copy; 2023
         </p>
