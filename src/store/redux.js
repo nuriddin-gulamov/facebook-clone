@@ -34,7 +34,15 @@ function reducer(state = initialState, action) {
     case "GET_POSTS":
       return {
         ...state,
-        posts: [...action.payload.posts],
+        posts: action.payload.posts.map((post) => {
+          if (post.likedBy.includes(action.payload.userId)) {
+            return {
+              ...post,
+              liked: true,
+            };
+          }
+          return post;
+        }),
       };
 
     case "HANDLE_POST_LIKE":
