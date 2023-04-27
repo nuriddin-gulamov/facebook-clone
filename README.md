@@ -6,4 +6,4 @@ You can feel free to view any code written for this project through this reposit
 
 ## How to see the project?
 
-You can see it live by click [https://facebook-clone-gn.netlify.app](here) ✅
+You can see it live by click [here](https://facebook-clone-gn.netlify.app) ✅
