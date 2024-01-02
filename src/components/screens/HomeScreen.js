@@ -27,7 +27,7 @@ function HomeScreen() {
   }, [dispatcher]);
 
   return (
-    <div className="min-h-[100vh] bg-gray100">
+    <div className="min-h-[100vh] bg-gray100 dark:bg-black250">
       <Header />
       <div className="2xl:container">
         <Main />

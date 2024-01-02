@@ -25,18 +25,18 @@ function PostFooter({ likeCount, commentCount, shareCount, liked, postId }) {
           <BiLike />
           <p className="ml-[5px]">{likeCount}</p>
         </div>
-        <div className="flex items-center text-gray400 cursor-pointer">
+        <div className="flex items-center text-gray400 dark:text-gray300 cursor-pointer">
           <p>{commentCount} comments</p>
           <p className="ml-[10px]">{shareCount} shares</p>
         </div>
       </div>
-      <div className="flex max-[310px]:flex-col items-center border-t-[1px] border-gray300 pt-[5px]">
+      <div className="flex max-[310px]:flex-col items-center border-t-[1px] border-gray300 dark:border-black300 pt-[5px]">
         <button
           onClick={likeHandler}
-          className="px-[10px] py-[5px] flex justify-center max-[310px]:justify-start items-center w-[100%] hover:bg-gray100 rounded-lg transition duration200 ease"
+          className="px-[10px] py-[5px] flex justify-center max-[310px]:justify-start items-center w-[100%] hover:bg-gray100 dark:hover:bg-black300 rounded-lg transition duration200 ease"
         >
           <LikeIcon className="text-[22px]" />
-          <p className="ml-[10px] text-gray350 text-[16px]">Like</p>
+          <p className="ml-[10px] text-gray350 dark:text-gray300 text-[16px]">Like</p>
         </button>
         {POST_BUTTONS.map((button, index) => (
           <ShareButton

@@ -25,10 +25,10 @@ function HeaderLeft() {
         withIcon
       />
       <button
-        className="h-[100%] w-[50px] py-[2.5px] lg:hidden rounded-lg hover:bg-gray200 flex justify-center items-center ml-[10px]"
+        className="h-[100%] w-[50px] py-[2.5px] lg:hidden rounded-lg hover:bg-gray200 dark:hover:bg-black300 flex justify-center items-center ml-[10px]"
         onClick={toggleMobileMenu}
       >
-        <BiMenu className="text-[35px] text-gray350" />
+        <BiMenu className="text-[35px] text-gray350 dark:text-gray300" />
       </button>
     </div>
   );

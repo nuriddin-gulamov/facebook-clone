@@ -42,10 +42,10 @@ function Sidebar() {
             />
           ))}
         <button
-          className="flex items-center py-[10px] px-[15px] rounded-lg hover:bg-gray250 mt-[5px]"
+          className="flex items-center py-[10px] px-[15px] rounded-lg hover:bg-gray250 dark:hover:bg-black300 dark:text-gray300 mt-[5px]"
           onClick={toggleMoreButtons}
         >
-          <div className="w-[28px] h-[28px] flex justify-center items-center bg-gray275 rounded-full">
+          <div className="w-[28px] h-[28px] flex justify-center items-center bg-gray275 dark:bg-gray400 dark:text-gray300 rounded-full">
             {moreButtonsOpened ? (
               <SlArrowUp className="text-[15px]" />
             ) : (
@@ -58,7 +58,7 @@ function Sidebar() {
         </button>
       </div>
       <footer className="mt-[25px] px-[15px]">
-        <p className="text-[14px]">
+        <p className="text-[14px] dark:text-gray300">
           Nuriddin Gulamov - Facebook Clone &copy; 2023
         </p>
       </footer>

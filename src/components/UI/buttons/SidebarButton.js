@@ -7,7 +7,7 @@ function SidebarButton({ Icon, img, title, index }) {
 
   return (
     <button
-      className={`flex items-center py-[10px] px-[15px] rounded-lg hover:bg-gray250 transition duration200 ease ${
+      className={`flex items-center py-[10px] px-[15px] rounded-lg hover:bg-gray250 dark:hover:bg-black300 dark:text-gray300 transition duration200 ease ${
         index !== 0 && "mt-[5px]"
       } `}
     >

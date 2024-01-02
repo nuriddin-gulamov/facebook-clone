@@ -18,7 +18,7 @@ function PostHeader({ Icon, name, posted, pPublic }) {
           </div>
         </div>
       </div>
-      <div className="w-[40px] h-[40px] flex justify-center items-center rounded-full bg-gray100 hover:bg-gray300 cursor-pointer transition duration100 ease">
+      <div className="w-[40px] h-[40px] flex justify-center items-center rounded-full bg-gray100 dark:bg-black300 hover:bg-gray300 cursor-pointer transition duration100 ease">
         <FiMoreHorizontal />
       </div>
     </div>

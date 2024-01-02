@@ -9,6 +9,7 @@ const initialState = {
   stories: STORIES,
   mobileMenuOpened: false,
   isAuthenticated: false,
+  darkModeOn: false,
 };
 
 function reducer(state = initialState, action) {
@@ -29,6 +30,12 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: false,
+      };
+
+    case "TOGGLE_DARK_MODE":
+      return {
+        ...state,
+        darkModeOn: !state.darkModeOn,
       };
 
     case "GET_POSTS":

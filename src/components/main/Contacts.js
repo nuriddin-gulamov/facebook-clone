@@ -12,7 +12,7 @@ function Contacts() {
         mobileMenuOpened && "hidden"
       }`}
     >
-      <h2 className="text-[22px] text-gray400 mb-[10px] pl-[15px]">Contacts</h2>
+      <h2 className="text-[22px] text-gray400 dark:text-gray300 mb-[10px] pl-[15px]">Contacts</h2>
       {CONTACTS.map((contact, index) => (
         <SidebarButton
           img={contact.img}

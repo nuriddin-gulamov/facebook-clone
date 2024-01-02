@@ -5,8 +5,9 @@ import HomeScreen from "./components/screens/HomeScreen";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const darkModeOn = useSelector((state) => state.darkModeOn);
 
-  return <>{isAuthenticated ? <HomeScreen /> : <LoginScreen />}</>;
+  return <div className={darkModeOn ? "dark" : null}>{isAuthenticated ? <HomeScreen /> : <LoginScreen />}</div>;
 }
 
 export default App;

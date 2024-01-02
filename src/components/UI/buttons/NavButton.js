@@ -4,12 +4,12 @@ function NavButton({ Icon, activeBtn, index }) {
       className={`h-[56px] w-[110px] flex justify-center items-center ${
         index !== 0 && "ml-[15px]"
       } ${activeBtn === index && "border-b-[3px] border-primary"} ${
-        activeBtn !== index && "hover:bg-gray100 rounded-lg h-[48px]"
+        activeBtn !== index && "hover:bg-gray100 dark:hover:bg-black300 rounded-lg h-[48px]"
       }`}
     >
       <Icon
         className={`text-[28px] ${
-          activeBtn === index ? "text-primary" : "text-gray400"
+          activeBtn === index ? "text-primary" : "text-gray400 dark:text-gray325"
         }`}
       />
     </button>
