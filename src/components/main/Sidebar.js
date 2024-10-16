@@ -59,7 +59,7 @@ function Sidebar() {
       </div>
       <footer className="mt-[25px] px-[15px]">
         <p className="text-[14px] dark:text-gray300">
-          Nuriddin Gulamov - Facebook Clone &copy; 2023
+          Nuriddin Gulamov - Facebook Clone &copy; {new Date().getFullYear()}
         </p>
       </footer>
     </div>

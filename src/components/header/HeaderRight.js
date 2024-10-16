@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { FaUser, FaMoon } from "react-icons/fa";
+import { FaMoon, FaSignOutAlt } from "react-icons/fa";
 
 import { HEADER_RIGHT_BUTTONS } from "../../data/buttons";
 
@@ -40,7 +40,7 @@ function HeaderRight() {
               key={Math.random()}
               onClick={handleLogout}
           >
-              <FaUser className="text-[19px] text-black100 dark:text-gray300"/>
+              <FaSignOutAlt className="text-[19px] text-black100 dark:text-gray300"/>
           </button>
       </div>
   );

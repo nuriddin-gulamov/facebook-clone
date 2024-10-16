@@ -9,7 +9,7 @@ const initialState = {
   stories: STORIES,
   mobileMenuOpened: false,
   isAuthenticated: false,
-  darkModeOn: false,
+  darkModeOn: window.matchMedia('(prefers-color-scheme: dark)').matches
 };
 
 function reducer(state = initialState, action) {
