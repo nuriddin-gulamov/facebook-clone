@@ -6,7 +6,7 @@ import nuriddin from "../../../assets/posts/avatars/1.png";
 
 function Post({ postData }) {
   return (
-    <div className="w-[100%] bg-white rounded-lg shadow-md py-[10px] mb-[30px]">
+    <div className="w-[100%] bg-white dark:bg-black200 dark:text-gray300 rounded-lg shadow-md py-[10px] mb-[30px]">
       <PostHeader
         id={postData.id}
         Icon={postData.icon === "user" && nuriddin}

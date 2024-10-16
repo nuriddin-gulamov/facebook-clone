@@ -11,11 +11,15 @@ module.exports = {
         gray250: "#e4e5e8",
         gray275: "#d8d9da",
         gray300: "#d8dade",
+        gray325: "#B0B3B8",
         gray350: "#606266",
         gray400: "#65676b",
         green: "#3ebb25",
         green200: "#35a420",
         black100: "#050505",
+        black250: "#18191a",
+        black200: "#242526",
+        black300: "#3A3B3C",
         red: "#fb0000",
       },
       flex: {
@@ -27,5 +31,6 @@ module.exports = {
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 };
