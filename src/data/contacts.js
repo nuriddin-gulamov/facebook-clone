@@ -7,13 +7,13 @@ import bill from "../assets/contacts/6.jpg";
 import tristan from "../assets/contacts/7.jpg";
 
 const CONTACTS = [
-  { img: elon, name: "Elon Musk" },
-  { img: jeff, name: "Jeff Bezos" },
-  { img: bill, name: "Bill Gates" },
-  { img: steve, name: "Steve Jobs" },
-  { img: obama, name: "Barack Obama" },
-  { img: andrew, name: "Andrew Tate" },
-  { img: tristan, name: "Tristan Tate" },
+    { img: elon, name: "Elon Musk" },
+    { img: jeff, name: "Jeff Bezos" },
+    { img: bill, name: "Bill Gates" },
+    { img: steve, name: "Steve Jobs" },
+    { img: obama, name: "Barack Obama" },
+    { img: andrew, name: "Andrew Tate" },
+    { img: tristan, name: "Tristan Tate" }
 ];
 
 export default CONTACTS;

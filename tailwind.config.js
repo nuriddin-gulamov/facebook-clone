@@ -4,31 +4,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#1a74e4",
-        primary200: "#145fbb",
-        gray100: "#f0f2f5",
-        gray200: "#f2f2f2",
-        gray250: "#e4e5e8",
-        gray275: "#d8d9da",
-        gray300: "#d8dade",
-        gray325: "#B0B3B8",
-        gray350: "#606266",
-        gray400: "#65676b",
-        green: "#3ebb25",
-        green200: "#35a420",
-        black100: "#050505",
-        black250: "#18191a",
-        black200: "#242526",
-        black300: "#3A3B3C",
-        red: "#fb0000",
+        'primary': "#1a74e4",
+        'red': "#fb0000",
+        'gray-100': "#f0f2f5",
+        'gray-200': "#e4e5e8",
+        'gray-300': "#d8dade",
+        'gray-400': "#65676b",
+        'dark-100': "#3A3B3C",
+        'dark-200': "#242526",
+        'dark-300': "#18191a",
+        'dark-400': "#050505"
       },
       flex: {
         2: "2 2 0%",
-        4: "4 4 0%",
+        4: "4 4 0%"
       },
-      container: {
-        center: true,
-      },
+      container: { center: true }
     },
   },
   darkMode: 'class',
