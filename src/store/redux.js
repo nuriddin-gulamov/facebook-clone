@@ -5,93 +5,92 @@ import { database } from "./firebase";
 import STORIES from "../data/stories";
 
 const initialState = {
-  posts: [],
-  stories: STORIES,
-  mobileMenuOpened: false,
-  isAuthenticated: false,
-  darkModeOn: window.matchMedia('(prefers-color-scheme: dark)').matches
+    posts: [],
+    stories: STORIES,
+    mobileMenuOpened: false,
+    isAuthenticated: false,
+    darkModeOn: window.matchMedia('(prefers-color-scheme: dark)').matches
 };
 
 function reducer(state = initialState, action) {
-  switch (action.type) {
-    case "TOGGLE_MOBILE_MENU":
-      return {
-        ...state,
-        mobileMenuOpened: !state.mobileMenuOpened,
-      };
-
-    case "AUTHENTICATE":
-      return {
-        ...state,
-        isAuthenticated: true,
-      };
-
-    case "UNAUTHENTICATE":
-      return {
-        ...state,
-        isAuthenticated: false,
-      };
-
-    case "TOGGLE_DARK_MODE":
-      return {
-        ...state,
-        darkModeOn: !state.darkModeOn,
-      };
-
-    case "GET_POSTS":
-      return {
-        ...state,
-        posts: action.payload.posts.map((post) => {
-          if (post.likedBy.includes(action.payload.userId)) {
+    switch (action.type) {
+        case "TOGGLE_MOBILE_MENU":
             return {
-              ...post,
-              liked: true,
+                ...state,
+                mobileMenuOpened: !state.mobileMenuOpened
             };
-          }
-          return post;
-        }),
-      };
 
-    case "HANDLE_POST_LIKE":
-      const userId = action.payload.userId;
-      const postId = action.payload.postId;
-      const currentPost = state.posts.find((post) => post.id === postId);
-      const userHasLiked = currentPost.likedBy.includes(userId);
+        case "AUTHENTICATE":
+            return {
+                ...state,
+                isAuthenticated: true
+            };
 
-      const likedByRef = ref(database, `posts/${postId}/likedBy`);
+        case "UNAUTHENTICATE":
+            return {
+                ...state,
+                isAuthenticated: false
+            };
 
-      if (userHasLiked) {
-        set(
-          likedByRef,
-          currentPost.likedBy.filter((id) => id !== userId)
-        );
-      } else {
-        set(likedByRef, [...currentPost.likedBy, userId]);
-      }
+        case "TOGGLE_DARK_MODE":
+            return {
+                ...state,
+                darkModeOn: !state.darkModeOn
+            };
 
-      const updatedPosts = state.posts.map((post) => {
-        if (post.id === postId) {
-          const newLikedBy = userHasLiked
-            ? currentPost.likedBy.filter((id) => id !== userId)
-            : [...currentPost.likedBy, userId];
+        case "GET_POSTS":
+            return {
+                ...state,
+                posts: action.payload.posts.map((post) => {
+                    if (post.likedBy.includes(action.payload.userId)) {
+                        return {
+                            ...post,
+                            liked: true
+                        };
+                    }
+                    return post;
+                })
+            };
 
-          // Only create a new post object if the likedBy array is actually changed
-          return newLikedBy === currentPost.likedBy
-            ? post
-            : { ...post, liked: !userHasLiked, likedBy: newLikedBy };
-        }
+        case "HANDLE_POST_LIKE":
+            const userId = action.payload.userId;
+            const postId = action.payload.postId;
+            const currentPost = state.posts.find((post) => post.id === postId);
+            const userHasLiked = currentPost.likedBy.includes(userId);
 
-        return post;
-      });
+            const likedByRef = ref(database, `posts/${postId}/likedBy`);
 
-      return {
-        ...state,
-        posts: updatedPosts,
-      };
+            if (userHasLiked) {
+                set(
+                    likedByRef,
+                    currentPost.likedBy.filter((id) => id !== userId)
+                );
+            } else {
+                set(likedByRef, [...currentPost.likedBy, userId]);
+            }
 
-    default:
-      return state;
-  }
+            const updatedPosts = state.posts.map((post) => {
+                if (post.id === postId) {
+                    const newLikedBy = userHasLiked
+                      ? currentPost.likedBy.filter((id) => id !== userId)
+                      : [...currentPost.likedBy, userId];
+
+                    // Only create a new post object if the likedBy array is actually changed
+                    return newLikedBy === currentPost.likedBy
+                      ? post
+                      : { ...post, liked: !userHasLiked, likedBy: newLikedBy };
+                }
+
+                return post;
+            });
+
+            return {
+                ...state,
+                posts: updatedPosts,
+            };
+
+        default: return state;
+    }
 }
 
 const store = createStore(reducer);
