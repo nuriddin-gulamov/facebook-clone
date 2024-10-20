@@ -4,7 +4,7 @@ function Story({ Icon, img, name }) {
             <img
                 src={img}
                 alt=""
-                className="relative h-[190px] max-sm:h-[150px] object-contain"
+                className="relative h-[190px] max-sm:h-[150px] w-full object-contain"
             />
             <div className="absolute bg-black/[.35] top-0 left-0 right-0 bottom-0 rounded-lg"></div>
         </div>
