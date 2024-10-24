@@ -1,10 +1,9 @@
 import { AiFillHome, AiFillShop } from "react-icons/ai";
 import { FaUserFriends, FaBell, FaUser, FaLeaf } from "react-icons/fa";
-import { RiMovieFill, RiShareForwardLine } from "react-icons/ri";
+import { RiMovieFill } from "react-icons/ri";
 import { MdGroups, MdFeedback } from "react-icons/md";
 import { BsFillGrid3X3GapFill, BsMessenger } from "react-icons/bs";
 import { SiFacebookgaming } from "react-icons/si";
-import { BiComment } from "react-icons/bi";
 import {
     FcAlarmClock,
     FcConferenceCall,
@@ -72,9 +71,4 @@ export const SHARE_BUTTONS = [
   { icon: FcStart, title: "Live Video" },
   { icon: FcGallery, title: "Photo/Video" },
   { icon: FcLike, title: "Feeling/Activity" }
-];
-
-export const POST_BUTTONS = [
-  { icon: BiComment, title: "Comment" },
-  { icon: RiShareForwardLine, title: "Share" }
 ];
