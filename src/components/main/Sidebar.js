@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 
 import { SIDEBAR_BUTTONS, SIDEBAR_MORE_BUTTONS } from "../../data/buttons";
-import SidebarButton from "../UI/buttons/SidebarButton";
+import SidebarButton from "../UI/SidebarButton";
 
 function Sidebar() {
     const mobileMenuOpened = useSelector((state) => state.mobileMenuOpened);

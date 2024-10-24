@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 import CONTACTS from "../../data/contacts";
-import SidebarButton from "../UI/buttons/SidebarButton";
+import SidebarButton from "../UI/SidebarButton";
 
 function Contacts() {
     const mobileMenuOpened = useSelector((state) => state.mobileMenuOpened);

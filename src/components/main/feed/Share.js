@@ -1,7 +1,6 @@
 import { FaUser } from "react-icons/fa";
 
 import { SHARE_BUTTONS } from "../../../data/buttons";
-import ShareButton from "../../UI/buttons/IconButton";
 
 function Share() {
     return <div className="w-[90%] max-[310px]:w-[95%] px-[15px] py-[10px] bg-white dark:bg-dark-200 rounded-lg mt-[35px] shadow-md">
@@ -18,13 +17,14 @@ function Share() {
             />
         </div>
         <div className="flex max-sm:flex-col pt-[10px] border-t-[1px] border-gray-300 dark:border-dark-100 mt-[15px]">
-            {SHARE_BUTTONS.map((button, index) => (
-                <ShareButton
-                    Icon={button.icon}
-                    className="justify-center max-sm:justify-start"
-                    key={index}
-                >{button.title}</ShareButton>
-            ))}
+            {SHARE_BUTTONS.map((button, index) => {
+                const Icon = button.icon;
+
+                return <button key={index} className="px-[10px] py-[5px] flex sm:justify-center items-center w-[100%] hover:bg-gray-100 dark:hover:bg-dark-100 rounded-lg transition duration200 ease">
+                    <Icon className="text-[22px]"/>
+                    <p className="ml-[10px] text-gray-400 dark:text-gray-300 text-[16px]">{button.title}</p>
+                </button>;
+            })}
         </div>
     </div>;
 }
