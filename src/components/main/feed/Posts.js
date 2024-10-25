@@ -14,7 +14,7 @@ function Posts() {
             if (snapshot.exists()) {
                 dispatcher({
                     type: "FETCH_POSTS",
-                    payload: { posts: snapshot.val() }
+                    payload: { posts: Object.values(snapshot.val()).reverse() }
                 });
             }
         };
@@ -25,7 +25,7 @@ function Posts() {
     const POSTS = useSelector(state => state.posts);
 
     return <div className="w-[90%] max-[310px]:w-[95%] pt-[35px]">
-        {POSTS.map((post, i) => <Post postData={post} key={i} />)}
+        {POSTS?.map((post, i) => <Post postData={post} key={i} />)}
     </div>;
 }
 

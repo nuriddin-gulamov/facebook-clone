@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import LoginScreen from "./components/screens/AuthScreen";
+import AuthScreen from "./components/screens/AuthScreen";
 import HomeScreen from "./components/screens/HomeScreen";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         return () => window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', changeHandler);
     }, [dispatcher, darkModeOn]);
 
-    return <div className={darkModeOn ? "dark" : null}>{isAuthenticated ? <HomeScreen /> : <LoginScreen />}</div>;
+    return <div className={darkModeOn ? "dark" : null}>{isAuthenticated ? <HomeScreen /> : <AuthScreen />}</div>;
 }
 
 export default App;

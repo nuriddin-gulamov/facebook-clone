@@ -1,13 +1,11 @@
 import { createStore } from "redux";
-import { ref, get, set } from "firebase/database";
+import { ref, get, set, push } from "firebase/database";
 import moment from "moment";
 
 import { auth, database } from "./firebase";
-import STORIES from "../data/stories";
 
 const initialState = {
     posts: [],
-    stories: STORIES,
     mobileMenuOpened: false,
     isAuthenticated: false,
     darkModeOn: window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -32,6 +30,32 @@ function reducer(state = initialState, action) {
                 ...state,
                 posts: action.payload.posts
             };
+
+        case "ADD_POST": {
+            const userId = auth.currentUser?.uid;
+            if (!userId) return state;
+
+            const title = action.payload.title;
+
+            const postsRef = ref(database, 'posts');
+            const newPostRef = push(postsRef, {});
+            const newPost = {
+                id: newPostRef.key,
+                avatar: 'user',
+                user: {
+                    id: auth.currentUser.uid,
+                    name: auth.currentUser.email
+                },
+                date: moment().toISOString(),
+                title
+            };
+            set(newPostRef, newPost);
+
+            return {
+                ...state,
+                posts: [newPost, ...state.posts]
+            };
+        }
 
         case "HANDLE_POST_LIKE": {
             const userId = auth.currentUser?.uid;
@@ -71,6 +95,7 @@ function reducer(state = initialState, action) {
             const comment = action.payload.comment;
 
             const newComment = {
+                id: crypto.randomUUID(),
                 comment,
                 date: moment().toISOString(),
                 user: {

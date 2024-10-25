@@ -15,7 +15,8 @@ function PostComments({ postId, comments }) {
         setEnteredComment(e.target.value);
     }
 
-    async function commentHandler() {
+    async function commentHandler(e) {
+        e.preventDefault();
         if (enteredComment.trim().length === 0) setValidationError(true);
         else {
             setValidationError(false);
@@ -42,10 +43,12 @@ function PostComments({ postId, comments }) {
                 </div>
             </div>
         ))}
-        <div className="sticky bottom-0 left-0 right-0 flex gap-[5px] bg-white dark:bg-dark-200 pt-2.5">
-            <div><div className="w-[32px] h-[32px] rounded-full flex justify-center items-center bg-gray-100 dark:bg-dark-100"><FaUser/></div></div>
-            <input onChange={enteredCommentHandler} type="text" placeholder="Write comment..." value={enteredComment} className={`h-[32px] px-3 rounded-[18px] w-full bg-gray-100 dark:bg-dark-100 text-[15px] leading-none outline-none placeholder:text-gray-400 dark:placeholder:text-gray-300 ${validationError && 'border border-red'}`}/>
-            <div><button onClick={commentHandler} className="w-[32px] h-[32px] rounded-full flex justify-center items-center transition bg-gray-100 dark:bg-dark-100 hover:bg-gray-200"><IoSend /></button></div>
+        <div className="sticky bottom-0 left-0 right-0 bg-white dark:bg-dark-200 pt-2.5">
+            <form onSubmit={commentHandler} className="flex gap-[5px]">
+                <div><div className="w-[32px] h-[32px] rounded-full flex justify-center items-center bg-gray-100 dark:bg-dark-100"><FaUser/></div></div>
+                <input onChange={enteredCommentHandler} type="text" placeholder="Write comment..." value={enteredComment} className={`h-[32px] px-3 rounded-[18px] w-full bg-gray-100 dark:bg-dark-100 text-[15px] leading-none outline-none placeholder:text-gray-400 dark:placeholder:text-gray-300 ${validationError && 'border border-red'}`}/>
+                <div><button type="submit" className="w-[32px] h-[32px] rounded-full flex justify-center items-center transition bg-gray-100 dark:bg-dark-100 hover:bg-gray-200"><IoSend /></button></div>
+            </form>
         </div>
     </div>;
 }

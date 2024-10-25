@@ -1,10 +1,7 @@
-import { useSelector } from "react-redux";
-
+import STORIES from "../../../data/stories";
 import Story from "../../UI/Story";
 
 function Stories() {
-    const STORIES = useSelector((state) => state.stories);
-
     return <div className="flex justify-center max-[310px]:justify-start items-center gap-[15px] w-[100%] max-[850px]:justify-center">
         {STORIES.map((story, index) => (
             <div className="max-sm:hidden" key={index}>
