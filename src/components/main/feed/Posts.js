@@ -1,17 +1,32 @@
-import { useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { get, child, ref } from "firebase/database";
+import { database } from "../../../store/firebase";
 
-import Post from "../../UI/Post/Post";
+import Post from "../../UI/post/Post";
 
 function Posts() {
-  const POSTS = useSelector((state) => state.posts);
+    const dispatcher = useDispatch();
 
-  return (
-    <div className="w-[90%] max-[310px]:w-[95%] pt-[35px]">
-      {POSTS.map((post, index) => (
-        <Post postData={post} key={index} />
-      ))}
-    </div>
-  );
+    useEffect(() => {
+        const fetchPosts = async function () {
+            const snapshot = await get(child(ref(database), "posts"));
+            if (snapshot.exists()) {
+                dispatcher({
+                    type: "FETCH_POSTS",
+                    payload: { posts: Object.values(snapshot.val()).reverse() }
+                });
+            }
+        };
+
+        fetchPosts();
+    }, [dispatcher]);
+
+    const POSTS = useSelector(state => state.posts);
+
+    return <div className="w-[90%] max-[310px]:w-[95%] pt-[35px]">
+        {POSTS?.map((post, i) => <Post postData={post} key={i} />)}
+    </div>;
 }
 
 export default Posts;
